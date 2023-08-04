@@ -1,9 +1,9 @@
 /*
 DBS211NEE - Final Project MS3 - Business Report
-Song Hwan Oh / 116872227 / soh62@myseneca.ca
-Sangjune Lee / 123050221 / slee569@myseneca.ca
-Ji Ho Nam / 139817217 / jhnam@myseneca.ca 
-Shine Lee / 130563224 / ylee248@myseneca.ca
+Song Hwan Oh / 116872227 
+Sangjune Lee / 123050221 
+Ji Ho Nam / 139817217 
+Shine Lee / 130563224 
 August 4, 2023
 */
 
