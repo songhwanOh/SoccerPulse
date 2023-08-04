@@ -1,9 +1,25 @@
-# Milestone 2 – Database Design
+# Milestone 1 – Project Idea and Proposal
 
-This milestone will include the design component of the project.  Groups will progress through the data modeling and normalization processes in order to finalize a database design.  Working within their group and in consultation with your professor, students will practice the processes learned in class to design a relational database.
+The first step is to choose a topic and get a basic idea of the requirements for the database.  Each group will submit a word document, with a cover page, that outlines their topic.  The document should include the following sections:
 
-ERD: Create a UML Entity Relationship Diagram of their database design following the database modeling process.  This design should then be checked to be compliant 3rd normal form through the normalization techniques learned in class.
-Data Dictionary: Groups will produce a data dictionary for each of their designed tables.  This data dictionary will include the same information as the ERD in table format in addition to data types, sizes, notes, and example data.  
-
+## Introduction
+A brief paragraph summarizing the industry surrounding the topic of choice and some background information about your involvement with the topic and why it was the choice for your group (written in 3rd person).
+## Problem Statement
+A one or 2 sentence paragraph describing what the need is in the industry for your software application and/or the data storage behind the software.  Why do we need a database?
+## Solution
+A brief paragraph describing how your team will build a database to support the proposed software application.
+## Requirements
+A point form list of the various requirements of the software that will require a database to support it.  Think about data storage, required reporting, and user experience features that may require data to be stored.
+Examples:  
+•	user login/registration
+•	profile management
+•	likes / dislikes
+•	how much money was made today?
+•	Inventory levels
+•	Customers, employees, products, orders
+•	Shopping carts
+•	Rating (rate a product up to 5 stars)
+•	Favorites
+Your requirements should include at least 4 items that would be considered data reports, providing information to the business or organization that would allow them to make informed business decisions.
 
 
