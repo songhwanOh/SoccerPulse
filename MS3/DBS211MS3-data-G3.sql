@@ -12,253 +12,286 @@ providing the scripting to insert sample data into all tables.
 The amount of data should be enough to allow addiquate testing of an application build upon the designed database.  
 Rule of Thumb: 20-30 rows per data tables and their associated bridge tables, and an appropriate number of rows in lookup tables.
 */
+-- xCOUNTRY Table data
+INSERT ALL
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (1, 'USA', 'NA', 'Washington, D.C.', 10, 'A')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (2, 'Bra', 'SA', 'Brasília', 5, 'B')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (3, 'Ger', 'EU', 'Berlin', 7, 'C')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (4, 'Fra', 'EU', 'Paris', 8, 'D')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (5, 'Arg', 'SA', 'Buenos Aires', 6, 'E')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (6, 'Esp', 'EU', 'Madrid', 9, 'F')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (7, 'Ita', 'EU', 'Rome', 12, 'G')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (8, 'Eng', 'EU', 'London', 11, 'H')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (9, 'Ned', 'EU', 'Amsterdam', 14, 'A')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (10, 'Mex', 'NA', 'Mexico City', 15, 'B')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (11, 'Por', 'EU', 'Lisbon', 18, 'C')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (12, 'Cle', 'SA', 'Santiago', 20, 'D')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (13, 'Bel', 'EU', 'Brussels', 16, 'E')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (14, 'Urg', 'SA', 'Montevideo', 22, 'F')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (15, 'Col', 'SA', 'Bogotá', 17, 'G')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (16, 'Cro', 'EU', 'Zagreb', 19, 'H')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (17, 'Rus', 'EU', 'Moscow', 23, 'A')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (18, 'Gha', 'AF', 'Accra', 28, 'B')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (19, 'Jap', 'AS', 'Tokyo', 27, 'C')
+    INTO xCOUNTRY (countryID, countryName, continent, capitalCity, FIFARanking, groupName) VALUES (20, 'Aus', 'OC', 'Canberra', 31, 'D')
+SELECT * FROM DUAL;
 
-INSERT INTO xCOUNTRY (countryName, continent, capitalCity, FIFARanking, groupName)
-VALUES 
-  ('USA', 'North America', 'Washington, D.C.', 10, 'A'),
-  ('Brazil', 'South America', 'Brasília', 5, 'B'),
-  ('Germany', 'Europe', 'Berlin', 7, 'C'),
-  ('France', 'Europe', 'Paris', 8, 'D'),
-  ('Argentina', 'South America', 'Buenos Aires', 6, 'E'),
-  ('Spain', 'Europe', 'Madrid', 9, 'F'),
-  ('Italy', 'Europe', 'Rome', 12, 'G'),
-  ('England', 'Europe', 'London', 11, 'H'),
-  ('Netherlands', 'Europe', 'Amsterdam', 14, 'A'),
-  ('Mexico', 'North America', 'Mexico City', 15, 'B'),
-  ('Portugal', 'Europe', 'Lisbon', 18, 'C'),
-  ('Chile', 'South America', 'Santiago', 20, 'D'),
-  ('Belgium', 'Europe', 'Brussels', 16, 'E'),
-  ('Uruguay', 'South America', 'Montevideo', 22, 'F'),
-  ('Colombia', 'South America', 'Bogotá', 17, 'G'),
-  ('Croatia', 'Europe', 'Zagreb', 19, 'H'),
-  ('Russia', 'Europe', 'Moscow', 23, 'A'),
-  ('Ghana', 'Africa', 'Accra', 28, 'B'),
-  ('Japan', 'Asia', 'Tokyo', 27, 'C'),
-  ('Australia', 'Oceania', 'Canberra', 31, 'D');
 
-INSERT INTO xPERSON (firstName, lastName, DOB)
-VALUES 
-  ('John', 'Doe', TO_DATE('1990-05-15', 'YYYY-MM-DD')),
-  ('Jane', 'Smith', TO_DATE('1985-08-20', 'YYYY-MM-DD')),
-  ('Michael', 'Johnson', TO_DATE('1993-02-10', 'YYYY-MM-DD')),
-  ('Emily', 'Brown', TO_DATE('1992-11-30', 'YYYY-MM-DD')),
-  ('David', 'Williams', TO_DATE('1988-04-25', 'YYYY-MM-DD')),
-  ('Sophia', 'Miller', TO_DATE('1995-07-08', 'YYYY-MM-DD')),
-  ('James', 'Jones', TO_DATE('1987-01-12', 'YYYY-MM-DD')),
-  ('Olivia', 'Davis', TO_DATE('1991-09-18', 'YYYY-MM-DD')),
-  ('Daniel', 'Wilson', TO_DATE('1989-03-22', 'YYYY-MM-DD')),
-  ('Ava', 'Taylor', TO_DATE('1994-06-05', 'YYYY-MM-DD')),
-  ('William', 'Evans', TO_DATE('1998-10-01', 'YYYY-MM-DD')),
-  ('Mia', 'Thomas', TO_DATE('1997-12-14', 'YYYY-MM-DD')),
-  ('Joseph', 'Martinez', TO_DATE('1996-02-28', 'YYYY-MM-DD')),
-  ('Emma', 'Hernandez', TO_DATE('1999-04-11', 'YYYY-MM-DD')),
-  ('Alexander', 'Lopez', TO_DATE('1991-07-23', 'YYYY-MM-DD')),
-  ('Sofia', 'Garcia', TO_DATE('1993-09-09', 'YYYY-MM-DD')),
-  ('Michael', 'Rivera', TO_DATE('1990-11-05', 'YYYY-MM-DD')),
-  ('Isabella', 'Lee', TO_DATE('1992-01-19', 'YYYY-MM-DD')),
-  ('Ethan', 'Rodriguez', TO_DATE('1988-03-27', 'YYYY-MM-DD')),
-  ('Amelia', 'Perez', TO_DATE('1987-06-30', 'YYYY-MM-DD'));
+-- xPERSON Table data
+INSERT ALL
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (1, 'John', 'Doe', TO_DATE('1990-05-15', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (2, 'Jane', 'Smith', TO_DATE('1985-08-20', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (3, 'Michael', 'Johnson', TO_DATE('1993-02-10', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (4, 'Emily', 'Brown', TO_DATE('1992-11-30', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (5, 'David', 'Williams', TO_DATE('1988-04-25', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (6, 'Sophia', 'Miller', TO_DATE('1995-07-08', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (7, 'James', 'Jones', TO_DATE('1987-01-12', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (8, 'Olivia', 'Davis', TO_DATE('1991-09-18', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (9, 'Daniel', 'Wilson', TO_DATE('1989-03-22', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (10, 'Ava', 'Taylor', TO_DATE('1994-06-05', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (11, 'William', 'Evans', TO_DATE('1998-10-01', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (12, 'Mia', 'Thomas', TO_DATE('1997-12-14', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (13, 'Joseph', 'Martinez', TO_DATE('1996-02-28', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (14, 'Emma', 'Hernandez', TO_DATE('1999-04-11', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (15, 'Alexander', 'Lopez', TO_DATE('1991-07-23', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (16, 'Sofia', 'Garcia', TO_DATE('1993-09-09', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (17, 'Michael', 'Rivera', TO_DATE('1990-11-05', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (18, 'Isabella', 'Lee', TO_DATE('1992-01-19', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (19, 'Ethan', 'Rodriguez', TO_DATE('1988-03-27', 'YYYY-MM-DD'))
+    INTO xPERSON (personID, firstName, lastName, DOB) VALUES (20, 'Amelia', 'Perez', TO_DATE('1987-06-30', 'YYYY-MM-DD'))
+SELECT * FROM DUAL;
 
-INSERT INTO xPLAYER (shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID)
-VALUES 
-  (7, 'FW', 180, 75, 'FC Barcelona', 'L', 1),
-  (10, 'MF', 175, 68, 'Real Madrid', 'R', 2),
-  (5, 'DF', 190, 85, 'Bayern Munich', 'R', 3),
-  (20, 'FW', 178, 72, 'Paris Saint-Germain', 'L', 4),
-  (8, 'MF', 182, 78, 'Manchester City', 'R', 5),
-  (3, 'DF', 186, 83, 'Liverpool', 'R', 6),
-  (11, 'FW', 183, 77, 'AC Milan', 'R', 7),
-  (4, 'MF', 177, 70, 'Chelsea', 'L', 8),
-  (6, 'DF', 191, 88, 'Ajax', 'R', 9),
-  (9, 'FW', 179, 74, 'Club América', 'L', 10),
-  (2, 'MF', 176, 71, 'Sporting CP', 'R', 11),
-  (18, 'DF', 184, 80, 'Colo-Colo', 'L', 12),
-  (14, 'FW', 181, 76, 'Anderlecht', 'R', 13),
-  (17, 'MF', 180, 73, 'Peñarol', 'R', 14),
-  (22, 'DF', 183, 79, 'Atletico Nacional', 'L', 15),
-  (16, 'FW', 177, 75, 'Deportivo Cali', 'R', 16),
-  (13, 'MF', 179, 72, 'Dinamo Zagreb', 'L', 17),
-  (19, 'DF', 182, 78, 'Lokomotiv Moscow', 'R', 18),
-  (23, 'FW', 185, 82, 'Hearts of Oak', 'L', 19),
-  (15, 'MF', 176, 70, 'Kashima Antlers', 'R', 20);
+-- xPLAYER Table
+INSERT ALL
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (1, 10, 'FW', 180, 75, 'Manchester United', 'R', 1)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (2, 7, 'MF', 175, 68, 'Paris Saint-Germain', 'L', 2)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (3, 5, 'CB', 190, 82, 'Bayern Munich', 'R', 3)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (4, 9, 'FW', 170, 70, 'Barcelona', 'L', 4)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (5, 11, 'MF', 178, 72, 'Boca Juniors', 'R', 5)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (6, 3, 'CB', 185, 80, 'Liverpool', 'R', 6)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (7, 8, 'MF', 180, 75, 'Real Madrid', 'L', 7)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (8, 6, 'CB', 188, 85, 'Juventus', 'R', 8)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (9, 20, 'FW', 175, 70, 'Tigres UANL', 'L', 9)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (10, 15, 'MF', 170, 68, 'Toronto FC', 'R', 10)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (11, 18, 'CB', 185, 75, 'Melbourne Victory', 'L', 11)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (12, 9, 'FW', 175, 72, 'Beijing Guoan', 'R', 12)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (13, 14, 'MF', 180, 75, 'Yokohama F. Marinos', 'L', 13)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (14, 7, 'CB', 190, 82, 'Mumbai City FC', 'R', 14)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (15, 23, 'FW', 170, 70, 'CSKA Moscow', 'L', 15)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (16, 8, 'MF', 175, 68, 'Atlético Nacional', 'R', 16)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (17, 6, 'CB', 180, 75, 'Sporting CP', 'L', 17)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (18, 10, 'FW', 178, 72, 'AIK', 'R', 18)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (19, 11, 'MF', 185, 80, 'Malmö FF', 'L', 19)
+    INTO xPLAYER (playerID, shirtNumber, fPosition, height, weight, clubTeam, dominantFoot, countryID) VALUES (20, 4, 'CB', 175, 70, 'Ulsan Hyundai', 'R', 20)
+SELECT * FROM DUAL;
 
-INSERT INTO xUSERS (email, countryResidence, prefLanguage, nickName)
-VALUES 
-  ('john@example.com', 1, 'EN', 'JDoe'),
-  ('jane@example.com', 2, 'EN', 'JSmith'),
-  ('michael@example.com', 3, 'EN', 'MJohnson'),
-  ('emily@example.com', 4, 'EN', 'EBrown'),
-  ('david@example.com', 5, 'EN', 'DWilliams'),
-  ('sophia@example.com', 6, 'EN', 'SMiller'),
-  ('james@example.com', 7, 'EN', 'JJones'),
-  ('olivia@example.com', 8, 'EN', 'ODavis'),
-  ('daniel@example.com', 9, 'EN', 'DWilson'),
-  ('ava@example.com', 10, 'EN', 'ATaylor'),
-  ('william@example.com', 11, 'EN', 'WEvans'),
-  ('mia@example.com', 12, 'EN', 'MThomas'),
-  ('joseph@example.com', 13, 'EN', 'JMartinez'),
-  ('emma@example.com', 14, 'EN', 'EHernandez'),
-  ('alexander@example.com', 15, 'EN', 'ALopez'),
-  ('sofia@example.com', 16, 'EN', 'SGarcia'),
-  ('michael2@example.com', 17, 'EN', 'MRivera'),
-  ('isabella@example.com', 18, 'EN', 'ILee'),
-  ('ethan@example.com', 19, 'EN', 'ERodriguez'),
-  ('amelia@example.com', 20, 'EN', 'APerez');
+-- xUSERS Table data
+INSERT ALL
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (1, 'user1@example.com', 1, 'EN', 'user1')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (2, 'user2@example.com', 2, 'EN', 'user2')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (3, 'user3@example.com', 3, 'EN', 'user3')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (4, 'user4@example.com', 4, 'EN', 'user4')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (5, 'user5@example.com', 5, 'EN', 'user5')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (6, 'user6@example.com', 6, 'EN', 'user6')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (7, 'user7@example.com', 7, 'EN', 'user7')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (8, 'user8@example.com', 8, 'EN', 'user8')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (9, 'user9@example.com', 9, 'EN', 'user9')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (10, 'user10@example.com', 10, 'EN', 'user10')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (11, 'user11@example.com', 1, 'EN', 'user11')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (12, 'user12@example.com', 2, 'EN', 'user12')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (13, 'user13@example.com', 3, 'EN', 'user13')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (14, 'user14@example.com', 4, 'EN', 'user14')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (15, 'user15@example.com', 5, 'EN', 'user15')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (16, 'user16@example.com', 6, 'EN', 'user16')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (17, 'user17@example.com', 7, 'EN', 'user17')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (18, 'user18@example.com', 8, 'EN', 'user18')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (19, 'user19@example.com', 9, 'EN', 'user19')
+    INTO xUSERS (userID, email, countryResidence, prefLanguage, nickName)
+    VALUES (20, 'user20@example.com', 10, 'EN', 'user20')
+SELECT * FROM DUAL;
 
-INSERT INTO xVENUE (venueName, city, vCapacity)
-VALUES 
-  ('MetLife Stadium', 'East Rutherford', 82500),
-  ('Rose Bowl', 'Pasadena', 90000),
-  ('AT&T Stadium', 'Arlington', 80000),
-  ('Gillette Stadium', 'Foxborough', 68756),
-  ('Soldier Field', 'Chicago', 61500),
-  ('Mercedes-Benz Superdome', 'New Orleans', 73208),
-  ('Arrowhead Stadium', 'Kansas City', 76416),
-  ('Empower Field at Mile High', 'Denver', 76125),
-  ('CenturyLink Field', 'Seattle', 69000),
-  ('Nissan Stadium', 'Nashville', 69274),
-  ('Lincoln Financial Field', 'Philadelphia', 69029),
-  ('Levi''s Stadium', 'Santa Clara', 68500),
-  ('FedExField', 'Landover', 82000),
-  ('Hard Rock Stadium', 'Miami Gardens', 64767),
-  ('Bills Stadium', 'Orchard Park', 71608),
-  ('FirstEnergy Stadium', 'Cleveland', 67895),
-  ('M&T Bank Stadium', 'Baltimore', 71008),
-  ('Paul Brown Stadium', 'Cincinnati', 65515),
-  ('U.S. Bank Stadium', 'Minneapolis', 66655),
-  ('State Farm Stadium', 'Glendale', 63400);
+-- xVENUE Table data
+INSERT ALL
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (1, 'Stadium A', 'City A', 50000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (2, 'Stadium B', 'City B', 45000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (3, 'Stadium C', 'City C', 60000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (4, 'Stadium D', 'City D', 55000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (5, 'Stadium E', 'City E', 70000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (6, 'Stadium F', 'City F', 40000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (7, 'Stadium G', 'City G', 65000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (8, 'Stadium H', 'City H', 60000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (9, 'Stadium I', 'City I', 55000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (10, 'Stadium J', 'City J', 50000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (11, 'Stadium K', 'City K', 45000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (12, 'Stadium L', 'City L', 60000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (13, 'Stadium M', 'City M', 55000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (14, 'Stadium N', 'City N', 70000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (15, 'Stadium O', 'City O', 40000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (16, 'Stadium P', 'City P', 65000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (17, 'Stadium Q', 'City Q', 60000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (18, 'Stadium R', 'City R', 55000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (19, 'Stadium S', 'City S', 50000)
+    INTO xVENUE (venueID, venueName, city, vCapacity) VALUES (20, 'Stadium T', 'City T', 45000)
+SELECT * FROM DUAL;
 
-INSERT INTO xMATCH_TYPE (matchType, matchTypeDesc)
-VALUES 
-  ('F', 'Friendly'),
-  ('C', 'Championship'),
-  ('L', 'League'),
-  ('C', 'Cup'),
-  ('E', 'Exhibition'),
-  ('Q', 'Qualification'),
-  ('S', 'Semifinal'),
-  ('F', 'Final'),
-  ('P', 'Playoff'),
-  ('A', 'All-Star'),
-  ('T', 'Tournament'),
-  ('M', 'Match'),
-  ('R', 'Round'),
-  ('G', 'Group'),
-  ('D', 'Division'),
-  ('B', 'Bracket'),
-  ('H', 'Home/Away'),
-  ('E', 'Elimination'),
-  ('I', 'International'),
-  ('N', 'National');
 
-INSERT INTO xEVENTS_DESC (eventType, eventDesc)
-VALUES 
-  ('G', 'Goal'),
-  ('YC', 'Yellow Card'),
-  ('RC', 'Red Card'),
-  ('S', 'Substitution'),
-  ('P', 'Penalty'),
-  ('F', 'Foul'),
-  ('O', 'Offside'),
-  ('C', 'Corner'),
-  ('T', 'Throw-in'),
-  ('I', 'Injury'),
-  ('A', 'Assist'),
-  ('M', 'Missed Shot'),
-  ('D', 'Dribble'),
-  ('N', 'Nutmeg'),
-  ('R', 'Rebound'),
-  ('H', 'Header'),
-  ('E', 'Extra Time'),
-  ('L', 'Long Pass'),
-  ('K', 'Keeper Save'),
-  ('B', 'Blocked Shot');
 
-INSERT INTO xMATCH (countryID_A, countryID_B, dateNTime, venueID, matchType, a_score, b_score)
-VALUES 
-  (1, 2, TO_DATE('2023-08-10 15:00', 'YYYY-MM-DD HH24:MI'), 1, 'F', 2, 1),
-  (2, 3, TO_DATE('2023-08-11 14:30', 'YYYY-MM-DD HH24:MI'), 2, 'C', 1, 3),
-  (1, 3, TO_DATE('2023-08-12 16:15', 'YYYY-MM-DD HH24:MI'), 3, 'C', 0, 0),
-  (4, 5, TO_DATE('2023-08-13 18:30', 'YYYY-MM-DD HH24:MI'), 4, 'L', 2, 2),
-  (6, 7, TO_DATE('2023-08-14 20:45', 'YYYY-MM-DD HH24:MI'), 5, 'C', 3, 1),
-  (8, 9, TO_DATE('2023-08-15 12:00', 'YYYY-MM-DD HH24:MI'), 6, 'F', 1, 0),
-  (10, 11, TO_DATE('2023-08-16 17:15', 'YYYY-MM-DD HH24:MI'), 7, 'C', 2, 2),
-  (12, 13, TO_DATE('2023-08-17 19:30', 'YYYY-MM-DD HH24:MI'), 8, 'L', 1, 2),
-  (14, 15, TO_DATE('2023-08-18 14:00', 'YYYY-MM-DD HH24:MI'), 9, 'F', 0, 1),
-  (16, 17, TO_DATE('2023-08-19 16:45', 'YYYY-MM-DD HH24:MI'), 10, 'C', 3, 3),
-  (18, 19, TO_DATE('2023-08-20 18:30', 'YYYY-MM-DD HH24:MI'), 11, 'L', 1, 0),
-  (20, 1, TO_DATE('2023-08-21 20:15', 'YYYY-MM-DD HH24:MI'), 12, 'C', 2, 2),
-  (2, 3, TO_DATE('2023-08-22 15:30', 'YYYY-MM-DD HH24:MI'), 13, 'F', 0, 1),
-  (4, 5, TO_DATE('2023-08-23 17:45', 'YYYY-MM-DD HH24:MI'), 14, 'C', 2, 3),
-  (6, 7, TO_DATE('2023-08-24 19:00', 'YYYY-MM-DD HH24:MI'), 15, 'L', 3, 1),
-  (8, 9, TO_DATE('2023-08-25 13:15', 'YYYY-MM-DD HH24:MI'), 16, 'C', 1, 1),
-  (10, 11, TO_DATE('2023-08-26 16:30', 'YYYY-MM-DD HH24:MI'), 17, 'F', 2, 0),
-  (12, 13, TO_DATE('2023-08-27 18:45', 'YYYY-MM-DD HH24:MI'), 18, 'C', 0, 2),
-  (14, 15, TO_DATE('2023-08-28 21:00', 'YYYY-MM-DD HH24:MI'), 19, 'L', 1, 1),
-  (16, 17, TO_DATE('2023-08-29 14:15', 'YYYY-MM-DD HH24:MI'), 20, 'C', 2, 3);
+-- xMATCH_TYPE Table data
+INSERT ALL
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('f', 'Friendly')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('q', 'qualifier')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('P', 'Playoff')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('R', 'Round Robin')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('S', 'Semifinal')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('F', 'Final')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('G', 'Group Stage')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('Q', 'Quarterfinal')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('E', 'Eighthfinal')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('T', 'Test')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('M', 'Match')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('L', 'League')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('D', 'Draw')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('C', 'Championship')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('N', 'National')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('W', 'World')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('X', 'Exhibition')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('Z', 'Zone')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('Y', 'Youth')
+    INTO xMATCH_TYPE (matchType, matchTypeDesc) VALUES ('O', 'Others')
+SELECT * FROM DUAL;
 
-INSERT INTO xEVENTS (matchID, eventType, playerID, regularTime, adittionalTime)
-VALUES 
-  (1, 'G', 1, 23, 2),
-  (1, 'YC', 2, 45, 0),
-  (2, 'G', 3, 60, 3),
-  (2, 'RC', 4, 75, 1),
-  (3, 'G', 5, 30, 0),
-  (3, 'G', 6, 65, 4),
-  (4, 'G', 7, 15, 1),
-  (4, 'YC', 8, 60, 0),
-  (5, 'G', 9, 42, 0),
-  (5, 'G', 10, 68, 3),
-  (6, 'G', 11, 81, 0),
-  (6, 'YC', 12, 20, 0),
-  (7, 'G', 13, 50, 2),
-  (7, 'RC', 14, 76, 1),
-  (8, 'G', 15, 37, 0),
-  (8, 'G', 16, 85, 0),
-  (9, 'G', 17, 12, 0),
-  (9, 'G', 18, 73, 0),
-  (10, 'G', 19, 64, 2),
-  (10, 'YC', 20, 30, 0),
-  (11, 'G', 1, 22, 1),
-  (11, 'RC', 2, 56, 0),
-  (12, 'G', 3, 75, 0),
-  (12, 'G', 4, 90, 2),
-  (13, 'G', 5, 41, 0),
-  (13, 'G', 6, 69, 1),
-  (14, 'G', 7, 53, 0),
-  (14, 'YC', 8, 78, 0),
-  (15, 'G', 9, 28, 0),
-  (15, 'G', 10, 60, 3),
-  (16, 'G', 11, 72, 0),
-  (16, 'YC', 12, 15, 0),
-  (17, 'G', 13, 49, 2),
-  (17, 'RC', 14, 71, 1),
-  (18, 'G', 15, 36, 0),
-  (18, 'G', 16, 88, 0),
-  (19, 'G', 17, 19, 0),
-  (19, 'G', 18, 82, 0),
-  (20, 'G', 19, 62, 2),
-  (20, 'YC', 20, 25, 0);
+-- xMATCH Table data 
+INSERT ALL
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1001, 1, 2, TO_DATE('2023-08-11 15:00', 'YYYY-MM-DD HH24:MI'), 1, 2, 1, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1002, 3, 4, TO_DATE('2023-08-12 14:30', 'YYYY-MM-DD HH24:MI'), 2, 0, 2, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1003, 5, 6, TO_DATE('2023-08-13 16:15', 'YYYY-MM-DD HH24:MI'), 3, 1, 1, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1004, 7, 8, TO_DATE('2023-08-14 17:00', 'YYYY-MM-DD HH24:MI'), 4, 3, 2, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1005, 9, 10, TO_DATE('2023-08-15 15:30', 'YYYY-MM-DD HH24:MI'), 5, 0, 0, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1006, 11, 12, TO_DATE('2023-08-16 14:45', 'YYYY-MM-DD HH24:MI'), 6, 1, 3, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1007, 13, 14, TO_DATE('2023-08-17 16:00', 'YYYY-MM-DD HH24:MI'), 7, 2, 2, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1008, 15, 16, TO_DATE('2023-08-18 17:15', 'YYYY-MM-DD HH24:MI'), 8, 1, 1, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1009, 17, 18, TO_DATE('2023-08-19 15:45', 'YYYY-MM-DD HH24:MI'), 9, 2, 0, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1010, 19, 20, TO_DATE('2023-08-20 14:00', 'YYYY-MM-DD HH24:MI'), 10, 3, 1, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1011, 2, 3, TO_DATE('2023-08-21 16:30', 'YYYY-MM-DD HH24:MI'), 1, 1, 2, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1012, 4, 5, TO_DATE('2023-08-22 17:45', 'YYYY-MM-DD HH24:MI'), 2, 2, 0, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1013, 6, 7, TO_DATE('2023-08-23 15:15', 'YYYY-MM-DD HH24:MI'), 3, 0, 1, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1014, 8, 9, TO_DATE('2023-08-24 14:30', 'YYYY-MM-DD HH24:MI'), 4, 1, 1, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1015, 10, 11, TO_DATE('2023-08-25 16:00', 'YYYY-MM-DD HH24:MI'), 5, 2, 3, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1016, 12, 13, TO_DATE('2023-08-26 17:15', 'YYYY-MM-DD HH24:MI'), 6, 3, 2, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1017, 14, 15, TO_DATE('2023-08-27 15:30', 'YYYY-MM-DD HH24:MI'), 7, 0, 1, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1018, 16, 17, TO_DATE('2023-08-28 14:45', 'YYYY-MM-DD HH24:MI'), 8, 1, 0, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1019, 18, 19, TO_DATE('2023-08-29 16:15', 'YYYY-MM-DD HH24:MI'), 9, 2, 2, 'F')
+    INTO xMATCH (matchID, countryID_A, countryID_B, dateNTime, venueID, a_score, b_score, matchType)
+        VALUES (1020, 20, 1, TO_DATE('2023-08-30 17:30', 'YYYY-MM-DD HH24:MI'), 10, 3, 1, 'F')
+SELECT * FROM DUAL;
 
-INSERT INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify)
-VALUES 
-  (1, 1, '1'),
-  (1, 3, '0'),
-  (2, 2, '1'),
-  (2, 4, '0'),
-  (3, 5, '1'),
-  (3, 7, '1'),
-  (4, 6, '0'),
-  (4, 8, '1'),
-  (5, 9, '1'),
-  (5, 11, '0'),
-  (6, 10, '1'),
-  (6, 12, '1'),
-  (7, 13, '0'),
-  (7, 15, '0'),
-  (8, 14, '1'),
-  (8, 16, '0'),
-  (9, 17, '1'),
-  (9, 19, '1'),
-  (10, 18, '0'),
-  (10, 20, '1');
+-- xEVENT_DESC Table data
+INSERT ALL
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('GL', 'Goal')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('AS', 'Assist')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('YC', 'Yellow Card')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('RC', 'Red Card')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('PS', 'Penalty Save')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('PG', 'Penalty Goal')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('OG', 'Own Goal')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('SU', 'Substitution')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('CF', 'Corner Kick')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('FK', 'Free Kick')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('TH', 'Throw-in')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('OF', 'Offside')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('IN', 'Injury')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('TR', 'Time Run')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('LB', 'Long Ball')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('CR', 'Cross')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('DR', 'Dribble')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('BL', 'Block')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('ST', 'Shot')
+    INTO xEVENTS_DESC (eventType, eventDesc) VALUES ('PK', 'Penalty Kick')
+SELECT * FROM DUAL;
+
+
+-- xEVENTS Table data 
+INSERT ALL
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (1, 1001, 'GL', 1, 20, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (2, 1002, 'GL', 4, 45, 2)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (3, 1003, 'YC', 7, 60, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (4, 1004, 'GL', 10, 78, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (5, 1005, 'GL', 13, 15, 1)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (6, 1005, 'RC', 16, 34, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (7, 1005, 'GL', 2, 5, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (8, 1008, 'YC', 5, 30, 3)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (9, 1009, 'GL', 8, 70, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (10, 1008, 'GL', 12, 40, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (11, 1020, 'RC', 9, 50, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (12, 1015, 'GL', 14, 88, 1)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (13, 1018, 'GL', 17, 10, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (14, 1002, 'YC', 19, 30, 2)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (15, 1004, 'GL', 1, 65, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (16, 1005, 'GL', 3, 12, 1)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (17, 1008, 'YC', 6, 38, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (18, 1006, 'PK', 9, 55, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (19, 1001, 'GL', 11, 23, 0)
+    INTO xEVENTS (eventID, matchID, eventType, playerID, regularTime, adittionalTime) VALUES (20, 1007, 'RC', 13, 70, 0)
+SELECT * FROM DUAL;
+
+-- xFAVORITES_SETTING Table data
+INSERT ALL
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (2, 1001, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (2, 1020, '0')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (2, 1015, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (3, 1019, '0')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (3, 1005, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (3, 1008, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (4, 1007, '0')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (4, 1008, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (4, 1005, '0')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (5, 1002, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (5, 1011, '0')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (5, 1016, '0')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (6, 1010, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (6, 1015, '0')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (6, 1018, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (7, 1020, '0')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (7, 1015, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (7, 1017, '1')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (8, 1019, '0')
+    INTO xFAVORITES_SETTING (userID, favoriteMatchID, notify) VALUES (8, 1008, '1')
+SELECT * FROM DUAL;
