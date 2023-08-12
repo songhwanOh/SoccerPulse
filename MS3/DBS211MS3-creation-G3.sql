@@ -111,5 +111,3 @@ CREATE TABLE xFAVORITES_SETTING
     CONSTRAINT setting_match_fk FOREIGN KEY (favoriteMatchID)  REFERENCES xMATCH(matchID)
 );
 
-drop 
-
