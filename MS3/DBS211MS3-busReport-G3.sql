@@ -13,22 +13,43 @@ Each report should have a paragraph writeup – in comment form, that explain th
 */
 
 /*
-1. show me the match results of the matches that user 15 set as favorite
+1. show me the match results of the matches that user  set as favorite
 */
 
-SELECT m.*
-FROM MATCHES m
+CREATE OR REPLACE VIEW vwMatchUserTwo AS
+SELECT 
+    m.MatchID,
+    m.dateNTIme,
+    m.A_score AS HOME_SCORE,
+    m.B_score AS AWAY_SCORE,
+    p.firstName,
+    p.LastName,
+    p.dob,
+    co.COUNTRYNAME AS HOME_NAME,
+    coun.COUNTRYNAME AS AWAY_NAME,
+    co.continent AS HOME_CONTINENT,
+    coun.continent AS AWAY_CONTINENT,
+    co.capitalcity AS HOME_CITY,
+    coun.capitalcity AS AWAY_CITY,
+    co.fifaranking AS HOME_RANK,
+    coun.fifaranking AS AWAY_RANK,
+    co.groupname
+FROM xMATCH m
 INNER JOIN xFAVORITES_SETTING fm ON m.matchID = fm.favoriteMatchID
-WHERE fm.userID = 15;
+INNER JOIN xCOUNTRY co ON m.COUNTRYID_a = co.COUNTRYID
+INNER JOIN xCOUNTRY coun ON m.COUNTRYID_b = coun.COUNTRYID
+INNER JOIN xUSERS u ON fm.USERID = u.USERID
+INNER JOIN xPERSON p ON u.userID = p.personID
+WHERE fm.userID = 2 AND fm.notify = 1;
+
+SELECT * FROM vwMatchUserTwo
 
 
 /*
 2. show me all the events that happened for match no. 15
 */
 
-SELECT *
-FROM MatchEvents
-WHERE matchID = 15;
+
 
 
 /*
