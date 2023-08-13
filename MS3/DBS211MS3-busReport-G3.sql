@@ -69,8 +69,28 @@ WHERE m.matchId = 1005
 ORDER BY e.regulartime;
 
 /*
-3. tell me all the scorers who are 25 years or younger in descending order
+3. Show me the list of players who are 25 years or younger(inclusive) who scored at least one goal, sort by age in descending order
 */
+CREATE OR REPLACE VIEW vwYouthPlayer AS
+SELECT DISTINCT
+    p.playerid,
+    lastName || ', ' || firstName AS fullName,
+    TRUNC(MONTHS_BETWEEN(sysdate, DOB)/12) AS AGE,
+    p.shirtnumber AS shirts,
+    p.fposition,
+    p.clubteam,
+    ct.countryName AS country,
+    e.EVENTTYPE
+FROM xperson
+    join xplayer p ON p.playerID = personID
+    join xevents e ON p.playerID = e.playerID
+    join xcountry ct ON ct.countryID = p.countryID
+WHERE e.EVENTTYPE = 'GL';
+
+
+SELECT * FROM vwYouthPlayer
+WHERE AGE <= 25
+ORDER BY AGE DESC;
 
 
 
