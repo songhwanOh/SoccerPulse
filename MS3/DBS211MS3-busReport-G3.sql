@@ -4,7 +4,7 @@ Song Hwan Oh / 116872227
 Sangjune Lee / 123050221 
 Ji Ho Nam / 139817217 
 Shine Lee / 130563224 
-August 12, 2023
+August 13, 2023
 */
 
 /*A single SQL file providing the scripting to create at least 4 VIEWS, that provide a report on the data that support the business, or organization, in making informed business decisions. 
