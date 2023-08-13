@@ -13,7 +13,7 @@ Each report should have a paragraph writeup – in comment form, that explain th
 */
 
 /*
-1. show me the match results of the matches that user  set as favorite
+1. show me the match results of the matches that user 2 set as favorite
 */
 
 CREATE OR REPLACE VIEW vwMatchUserTwo AS
