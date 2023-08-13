@@ -46,6 +46,27 @@ SELECT * FROM vwMatchUserTwo
 2. show me all the events that happened for match no 1015
 */
 
+CREATE OR REPLACE VIEW vwMatchEvent1005Details AS
+SELECT DISTINCT
+    m.matchId,
+    cA.countryname AS A_team,
+    cB.countryname AS B_team,
+    e.eventid,
+    e.playerid,
+    e.regulartime,
+    e.adittionaltime,
+    xp.firstname,
+    xp.lastname,
+    e2.*
+FROM xMatch m
+INNER JOIN xEvents e ON m.matchID = e.matchID
+INNER JOIN xPlayer p ON p.playerId =  e.playerId
+INNER JOIN xPerson xp ON xp.personId = p.playerId
+INNER JOIN xCountry cA ON m.countryid_a = cA.countryId
+INNER JOIN xCountry cB ON m.countryid_b = cB.countryId
+INNER JOIN xEvents_desc e2 ON e.eventType = e2.eventType
+WHERE m.matchId = 1005
+ORDER BY e.regulartime;
 
 /*
 3. tell me all the scorers who are 25 years or younger in descending order
