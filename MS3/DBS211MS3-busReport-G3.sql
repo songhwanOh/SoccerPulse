@@ -17,10 +17,21 @@ Each report should have a paragraph writeup – in comment form, that explain th
 */
 
 
+SELECT m.*
+FROM MATCHES m
+INNER JOIN xFAVORITES_SETTING fm ON m.matchID = fm.favoriteMatchID
+WHERE fm.userID = 15;
+
+
 
 /*
 2. show me all the events that happened for match no. 15
 */
+
+
+SELECT *
+FROM MatchEvents
+WHERE matchID = 15;
 
 
 /*
