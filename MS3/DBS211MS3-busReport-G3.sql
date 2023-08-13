@@ -95,6 +95,29 @@ ORDER BY AGE DESC;
 
 
 /*
-4. What are the demographics of users and their preferences, such as preferred language and country residence?
+4. What are the demographics of users and their preferences, such as preferred language and country residence,
+who have turn on notifications?
 */
 
+CREATE OR REPLACE VIEW vwUserDemographics AS
+SELECT
+    u.userID,
+    p.lastName || ', ' || p.firstName AS fullName,
+    p.DOB,
+    u.email,
+    u.prefLanguage,
+    c.countryName AS countryResidence
+FROM
+    xUSERS u
+JOIN
+    xPERSON p ON u.userID = p.personID
+LEFT JOIN
+    xCOUNTRY c ON u.countryResidence = c.countryID
+WHERE
+    u.userID IN (
+        SELECT fs.userID
+        FROM xFAVORITES_SETTING fs
+        WHERE fs.notify = '1'
+    );
+    
+SELECT * FROM vwUserDemographics;
