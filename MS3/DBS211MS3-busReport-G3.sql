@@ -20,7 +20,7 @@ SELECT
     p.LastName,
     p.dob,
     m.MatchID,
-    m.dateNTIme,
+    TO_CHAR(m.dateNTime, 'YYYY-MM-DD HH24:MI') AS MatchDate,
     co.COUNTRYNAME AS HOME_NAME,
     coun.COUNTRYNAME AS AWAY_NAME,
     m.A_score AS HOME_SCORE,
@@ -41,7 +41,7 @@ INNER JOIN xPERSON p ON u.userID = p.personID
 INNER JOIN xMatch_Type mt ON m.matchType = mt.matchType
 WHERE fm.userID = 2 AND fm.notify = 1;
 
-SELECT * FROM vwMatchUserTwo
+SELECT * FROM vwMatchUserTwo;
 
 /*
 2. show me all the events that happened for match no 1015
@@ -69,6 +69,7 @@ INNER JOIN xEvents_desc e2 ON e.eventType = e2.eventType
 WHERE m.matchId = 1005
 ORDER BY e.regulartime;
 
+SELECT * FROM vwMatchEvent1005Details;
 /*
 3. Show me the list of players who are 25 years or younger(inclusive) who scored at least one goal, sort by age in descending order
 */
