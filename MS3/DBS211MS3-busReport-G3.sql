@@ -16,15 +16,18 @@ Each report should have a paragraph writeup – in comment form, that explain th
 1. show me the match results of the matches that user 15 set as favorite
 */
 
+
 SELECT m.*
 FROM MATCHES m
 INNER JOIN xFAVORITES_SETTING fm ON m.matchID = fm.favoriteMatchID
 WHERE fm.userID = 15;
 
 
+
 /*
 2. show me all the events that happened for match no. 15
 */
+
 
 SELECT *
 FROM MatchEvents
@@ -34,6 +37,28 @@ WHERE matchID = 15;
 /*
 3. tell me the top 3 scorers who are 25 years or younger in descending order
 */
+CREATE VIEW vwYouthPlayer AS
+SELECT 
+    p.playerid,
+    lastName || ', ' || firstName AS fullName,
+    TRUNC(MONTHS_BETWEEN(sysdate, DOB)/12) AS AGE,
+    p.shirtnumber AS shirts,
+    p.fposition,
+    p.clubteam,
+    ct.countryName AS country,
+    e.EVENTTYPE
+FROM xperson
+    join xplayer p ON p.playerID = personID
+    join xevents e ON p.playerID = e.playerID
+    join xcountry ct ON ct.countryID = p.countryID
+WHERE e.EVENTTYPE = 'GL';
+
+
+/*
+SELECT * FROM vwYouthPlayer
+WHERE AGE <= 25 DESC;
+*/
+
 
 /*
 4. give me the list of the club team in descending order most no. of players representing their national team
