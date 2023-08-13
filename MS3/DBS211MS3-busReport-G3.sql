@@ -12,32 +12,33 @@ Each report should have a paragraph writeup â€“ in comment form, that expla
 /
 
 /
-1. show me the match results of the matches that user 2 set as favorite
+1. show me the match results of the matches that user 2 set as favorite and set notifications on.
 */
 CREATE OR REPLACE VIEW vwMatchUserTwo AS
 SELECT 
-    m.MatchID,
-    m.dateNTIme,
-    m.A_score AS HOME_SCORE,
-    m.B_score AS AWAY_SCORE,
     p.firstName,
     p.LastName,
     p.dob,
+    m.MatchID,
+    m.dateNTIme,
     co.COUNTRYNAME AS HOME_NAME,
     coun.COUNTRYNAME AS AWAY_NAME,
+    m.A_score AS HOME_SCORE,
+    m.B_score AS AWAY_SCORE,
     co.continent AS HOME_CONTINENT,
     coun.continent AS AWAY_CONTINENT,
     co.capitalcity AS HOME_CITY,
     coun.capitalcity AS AWAY_CITY,
     co.fifaranking AS HOME_RANK,
     coun.fifaranking AS AWAY_RANK,
-    co.groupname
+    mt.matchTypeDesc
 FROM xMATCH m
 INNER JOIN xFAVORITES_SETTING fm ON m.matchID = fm.favoriteMatchID
 INNER JOIN xCOUNTRY co ON m.COUNTRYID_a = co.COUNTRYID
 INNER JOIN xCOUNTRY coun ON m.COUNTRYID_b = coun.COUNTRYID
 INNER JOIN xUSERS u ON fm.USERID = u.USERID
 INNER JOIN xPERSON p ON u.userID = p.personID
+INNER JOIN xMatch_Type mt ON m.matchType = mt.matchType
 WHERE fm.userID = 2 AND fm.notify = 1;
 
 SELECT * FROM vwMatchUserTwo
