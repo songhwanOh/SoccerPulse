@@ -12,7 +12,7 @@ Each report should have a paragraph writeup â€“ in comment form, that expla
 /
 
 /
-1. show me the match results of the matches that user 2 set as favorite and set notifications on. 
+1. show me the match results of the matches that user 22 set as favorite and set notifications on. 
 */
 CREATE OR REPLACE VIEW vwMatchUserTwo AS
 SELECT 
@@ -39,7 +39,7 @@ INNER JOIN xCOUNTRY coun ON m.COUNTRYID_b = coun.COUNTRYID
 INNER JOIN xUSERS u ON fm.USERID = u.USERID
 INNER JOIN xPERSON p ON u.userID = p.personID
 INNER JOIN xMatch_Type mt ON m.matchType = mt.matchType
-WHERE fm.userID = 2 AND fm.notify = 1;
+WHERE fm.userID = 22 AND fm.notify = 1;
 
 SELECT * FROM vwMatchUserTwo;
 
