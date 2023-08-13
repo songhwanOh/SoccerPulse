@@ -12,7 +12,7 @@ Each report should have a paragraph writeup â€“ in comment form, that expla
 /
 
 /
-1. show me the match results of the matches that user 2 set as favorite and set notifications on.
+1. show me the match results of the matches that user 2 set as favorite and set notifications on. 
 */
 CREATE OR REPLACE VIEW vwMatchUserTwo AS
 SELECT 
