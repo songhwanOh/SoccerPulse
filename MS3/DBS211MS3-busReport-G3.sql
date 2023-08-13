@@ -46,14 +46,78 @@ SELECT * FROM vwMatchUserTwo
 2. show me all the events that happened for match no 1015
 */
 
+CREATE OR REPLACE VIEW vwMatchEvent1005Details AS
+SELECT DISTINCT
+    m.matchId,
+    cA.countryname AS A_team,
+    cB.countryname AS B_team,
+    e.eventid,
+    e.playerid,
+    e.regulartime,
+    e.adittionaltime,
+    xp.firstname,
+    xp.lastname,
+    e2.*
+FROM xMatch m
+INNER JOIN xEvents e ON m.matchID = e.matchID
+INNER JOIN xPlayer p ON p.playerId =  e.playerId
+INNER JOIN xPerson xp ON xp.personId = p.playerId
+INNER JOIN xCountry cA ON m.countryid_a = cA.countryId
+INNER JOIN xCountry cB ON m.countryid_b = cB.countryId
+INNER JOIN xEvents_desc e2 ON e.eventType = e2.eventType
+WHERE m.matchId = 1005
+ORDER BY e.regulartime;
 
 /*
-3. tell me all the scorers who are 25 years or younger in descending order
+3. Show me the list of players who are 25 years or younger(inclusive) who scored at least one goal, sort by age in descending order
 */
+CREATE OR REPLACE VIEW vwYouthPlayer AS
+SELECT DISTINCT
+    p.playerid,
+    lastName || ', ' || firstName AS fullName,
+    TRUNC(MONTHS_BETWEEN(sysdate, DOB)/12) AS AGE,
+    p.shirtnumber AS shirts,
+    p.fposition,
+    p.clubteam,
+    ct.countryName AS country,
+    e.EVENTTYPE
+FROM xperson
+    join xplayer p ON p.playerID = personID
+    join xevents e ON p.playerID = e.playerID
+    join xcountry ct ON ct.countryID = p.countryID
+WHERE e.EVENTTYPE = 'GL';
+
+
+SELECT * FROM vwYouthPlayer
+WHERE AGE <= 25
+ORDER BY AGE DESC;
 
 
 
 /*
-4. What are the demographics of users and their preferences, such as preferred language and country residence?
+4. What are the demographics of users and their preferences, such as preferred language and country residence,
+who have turn on notifications?
 */
 
+CREATE OR REPLACE VIEW vwUserDemographics AS
+SELECT
+    u.userID,
+    p.lastName || ', ' || p.firstName AS fullName,
+    p.DOB,
+    u.email,
+    u.prefLanguage,
+    c.countryName AS countryResidence
+FROM
+    xUSERS u
+JOIN
+    xPERSON p ON u.userID = p.personID
+LEFT JOIN
+    xCOUNTRY c ON u.countryResidence = c.countryID
+WHERE
+    u.userID IN (
+        SELECT fs.userID
+        FROM xFAVORITES_SETTING fs
+        WHERE fs.notify = '1'
+    );
+    
+SELECT * FROM vwUserDemographics;
